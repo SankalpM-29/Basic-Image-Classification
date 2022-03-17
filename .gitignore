@@ -1,0 +1,6 @@
+/data
+/__pycache__
+/config/__pycache__
+/.idea
+/.vscode
+models/model.h5

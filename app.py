@@ -4,6 +4,12 @@ from flask_cors import CORS, cross_origin
 from config.utils import decodeImage
 from predict import dogcat
 
+import tensorflow as tf
+# If memory growth is enabled for a PhysicalDevice, the runtime initialization will not allocate all memory on the device.
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+if len(physical_devices) > 0:
+   tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
 
@@ -40,4 +46,4 @@ def predictRoute():
 if __name__ == "__main__":
     clApp = ClientApp()
     #app.run(host='0.0.0.0', port=port)
-    app.run(debug=True)#host='0.0.0.0', port=8000, debug=True)
+    app.run()#debug=True)#host='0.0.0.0', port=8000, debug=True)

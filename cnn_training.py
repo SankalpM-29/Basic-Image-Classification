@@ -1,8 +1,7 @@
-# import os
 
-# os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 import tensorflow as tf
 
+# If memory growth is enabled for a PhysicalDevice, the runtime initialization will not allocate all memory on the device.
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 if len(physical_devices) > 0:
    tf.config.experimental.set_memory_growth(physical_devices[0], True)
